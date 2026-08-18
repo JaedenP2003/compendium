@@ -1,0 +1,10 @@
+<h1>Regions</h1>
+<div class="category-grid">
+  <% categories.forEach(function(category) { %>
+    <a class="category-card" href="/categories/<%= category.slug %>">
+      <h2><%= category.name %></h2>
+      <p><%= category.description %></p>
+      <span class="entry-count"><%= category.entry_count %> entries</span>
+    </a>
+  <% }); %>
+</div>

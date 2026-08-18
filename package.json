@@ -1,0 +1,23 @@
+{
+  "name": "compendium",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal Zelda-themed coding knowledge base",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "migrate": "node src/db/migrate.js"
+  },
+  "dependencies": {
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "markdown-it": "^14.1.0",
+    "pg": "^8.13.0",
+    "shiki": "^1.22.0"
+  }
+}
