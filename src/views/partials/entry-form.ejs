@@ -1,0 +1,34 @@
+<form action="<%= action %>" method="post" class="entry-form">
+  <% if (method === 'PUT') { %>
+    <input type="hidden" name="_method" value="PUT" />
+  <% } %>
+
+  <label>Title
+    <input type="text" name="title" value="<%= entry.title || '' %>" required />
+  </label>
+
+  <label>Category
+    <select name="category_id">
+      <option value="">— none —</option>
+      <% categories.forEach(function(c) { %>
+        <option value="<%= c.id %>" <%= entry.category_id === c.id ? 'selected' : '' %>>
+          <%= c.name %>
+        </option>
+      <% }); %>
+    </select>
+  </label>
+
+  <label>Summary
+    <input type="text" name="summary" value="<%= entry.summary || '' %>" />
+  </label>
+
+  <label>Tags (comma separated)
+    <input type="text" name="tags" value="<%= tagString %>" />
+  </label>
+
+  <label>Content (Markdown)
+    <textarea name="content" rows="16" required><%= entry.content || '' %></textarea>
+  </label>
+
+  <button type="submit"><%= method === 'PUT' ? 'Save changes' : 'Add to Compendium' %></button>
+</form>

@@ -1,0 +1,16 @@
+<h1><%= category.name %></h1>
+<p><%= category.description %></p>
+
+<a href="/entries/new">+ New Entry</a>
+
+<ul class="entry-list">
+  <% entries.forEach(function(entry) { %>
+    <li>
+      <a href="/entries/<%= entry.slug %>">
+        <span class="entry-number">#<%= entry.entry_number %></span>
+        <%= entry.title %>
+      </a>
+      <% if (entry.summary) { %><p><%= entry.summary %></p><% } %>
+    </li>
+  <% }); %>
+</ul>

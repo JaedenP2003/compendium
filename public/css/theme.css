@@ -90,3 +90,142 @@ body {
 .login-error {
   color: #f85149;
 }
+
+.new-entry-link {
+  color: #d4af37;
+  text-decoration: none;
+  border: 1px solid #30363d;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 700px;
+}
+
+.entry-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.entry-form input,
+.entry-form select,
+.entry-form textarea {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: #e6edf3;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.entry-form button {
+  align-self: flex-start;
+  background: #d4af37;
+  color: #0d1117;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.entry-header .entry-number {
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+.entry-category {
+  display: block;
+  color: #58a6ff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.entry-summary {
+  color: #c9d1d9;
+  font-style: italic;
+}
+
+.tag-chips {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.tag-chip {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #d4af37;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.entry-body {
+  background: #f5e9d3;
+  color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.entry-body pre {
+  overflow-x: auto;
+  padding: 0.75rem;
+  background: #0d1117;
+  color: #e6edf3;
+  border-radius: 4px;
+}
+
+.entry-meta {
+  display: flex;
+  gap: 1rem;
+  color: #8b949e;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+
+.entry-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.entry-actions a,
+.entry-actions button {
+  color: #e6edf3;
+  background: none;
+  border: 1px solid #30363d;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+}
+
+.entry-list li {
+  border-bottom: 1px solid #30363d;
+  padding: 0.75rem 0;
+}
+
+.entry-list a {
+  color: #e6edf3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.entry-list .entry-number {
+  color: #8b949e;
+  margin-right: 0.5rem;
+  font-weight: normal;
+}

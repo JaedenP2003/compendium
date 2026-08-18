@@ -20,6 +20,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.0",
     "markdown-it": "^14.1.0",
+    "method-override": "^3.0.0",
     "pg": "^8.13.0",
     "shiki": "^1.22.0"
   }

@@ -1,0 +1,48 @@
+<article class="entry-page">
+  <header class="entry-header">
+    <span class="entry-number">Compendium #<%= entry.entry_number %></span>
+    <% if (entry.category_name) { %>
+      <a class="entry-category" href="/categories/<%= entry.category_slug %>"><%= entry.category_name %></a>
+    <% } %>
+    <h1><%= entry.title %></h1>
+    <% if (entry.summary) { %>
+      <p class="entry-summary"><%= entry.summary %></p>
+    <% } %>
+  </header>
+
+  <% if (tags.length) { %>
+    <div class="tag-chips">
+      <% tags.forEach(function(tag) { %>
+        <span class="tag-chip"><%= tag %></span>
+      <% }); %>
+    </div>
+  <% } %>
+
+  <div class="entry-body"><%- html %></div>
+
+  <% if (related.length) { %>
+    <section class="related-entries">
+      <h2>Related Entries</h2>
+      <ul>
+        <% related.forEach(function(r) { %>
+          <li><a href="/entries/<%= r.slug %>"><%= r.title %></a></li>
+        <% }); %>
+      </ul>
+    </section>
+  <% } %>
+
+  <footer class="entry-meta">
+    <span>Discovered: <%= entry.discovered_at.toDateString() %></span>
+    <% if (entry.last_reviewed_at) { %>
+      <span>Last reviewed: <%= entry.last_reviewed_at.toDateString() %></span>
+    <% } %>
+  </footer>
+
+  <div class="entry-actions">
+    <a href="/entries/<%= entry.slug %>/edit">Edit</a>
+    <form action="/entries/<%= entry.slug %>" method="post" onsubmit="return confirm('Delete this entry?');">
+      <input type="hidden" name="_method" value="DELETE" />
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</article>
