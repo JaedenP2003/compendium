@@ -4,6 +4,9 @@
   "private": true,
   "description": "Personal Zelda-themed coding knowledge base",
   "main": "src/app.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "node src/app.js",
     "dev": "node --watch src/app.js",
