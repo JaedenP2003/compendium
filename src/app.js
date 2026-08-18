@@ -7,10 +7,12 @@ const session = require('express-session');
 const pgSession = require('connect-pg-simple')(session);
 const pool = require('./db/pool');
 const requireAuth = require('./middleware/auth');
+const loadCategories = require('./middleware/loadCategories');
 const authRoutes = require('./routes/auth');
 const indexRoutes = require('./routes/index');
 const categoryRoutes = require('./routes/categories');
 const entryRoutes = require('./routes/entries');
+const searchRoutes = require('./routes/search');
 
 const app = express();
 
@@ -43,9 +45,15 @@ app.use(
 
 app.use(authRoutes);
 app.use(requireAuth);
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
+app.use(loadCategories);
 app.use(indexRoutes);
 app.use(entryRoutes);
 app.use(categoryRoutes);
+app.use(searchRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Compendium listening on :${port}`));

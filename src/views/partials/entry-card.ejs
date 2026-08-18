@@ -1,0 +1,12 @@
+<a class="entry-card" href="/entries/<%= entry.slug %>">
+  <span class="entry-card-number">#<%= entry.entry_number %></span>
+  <div class="entry-card-body">
+    <h3><%= entry.title %></h3>
+    <% if (entry.category_name) { %>
+      <span class="entry-card-category"><%= entry.category_name %></span>
+    <% } %>
+    <% if (entry.summary) { %>
+      <p><%= entry.summary %></p>
+    <% } %>
+  </div>
+</a>

@@ -1,16 +1,10 @@
 <h1><%= category.name %></h1>
 <p><%= category.description %></p>
 
-<a href="/entries/new">+ New Entry</a>
+<a class="new-entry-link" href="/entries/new">+ New Entry</a>
 
-<ul class="entry-list">
+<div class="entry-card-list">
   <% entries.forEach(function(entry) { %>
-    <li>
-      <a href="/entries/<%= entry.slug %>">
-        <span class="entry-number">#<%= entry.entry_number %></span>
-        <%= entry.title %>
-      </a>
-      <% if (entry.summary) { %><p><%= entry.summary %></p><% } %>
-    </li>
+    <%- include('../partials/entry-card', { entry: { ...entry, category_name: null } }) %>
   <% }); %>
-</ul>
+</div>

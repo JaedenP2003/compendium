@@ -7,9 +7,11 @@
   <link rel="stylesheet" href="/css/theme.css" />
 </head>
 <body>
-  <%- include('partials/navbar') %>
-  <main class="content">
-    <%- body %>
-  </main>
+  <div class="app-shell">
+    <%- include('partials/sidebar') %>
+    <main class="main-pane">
+      <%- body %>
+    </main>
+  </div>
 </body>
 </html>
