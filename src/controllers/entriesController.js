@@ -1,6 +1,7 @@
 const pool = require('../db/pool');
 const markdown = require('../services/markdown');
 const slugify = require('../services/slugify');
+const wikilinks = require('../services/wikilinks');
 
 async function uniqueSlug(title, ignoreId) {
   const base = slugify(title) || 'entry';
@@ -54,6 +55,7 @@ exports.create = async (req, res) => {
     [title, slug, category_id || null, summary || null, content]
   );
   await setTags(rows[0].id, (tags || '').split(','));
+  await wikilinks.syncEntryLinks(rows[0].id, content);
   res.redirect(`/entries/${slug}`);
 };
 
@@ -82,11 +84,13 @@ exports.show = async (req, res) => {
     [entry.id]
   );
 
+  const linkedContent = await wikilinks.replaceWikilinksWithLinks(entry.content);
+
   res.render('entries/show', {
     entry,
     tags: tags.map((t) => t.name),
     related,
-    html: markdown.render(entry.content),
+    html: await markdown.render(linkedContent),
   });
 };
 
@@ -121,6 +125,7 @@ exports.update = async (req, res) => {
     [title, slug, category_id || null, summary || null, content, entryId]
   );
   await setTags(entryId, (tags || '').split(','));
+  await wikilinks.syncEntryLinks(entryId, content);
   res.redirect(`/entries/${slug}`);
 };
 
